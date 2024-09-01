@@ -1,5 +1,8 @@
 package command;
 
+import controller.ParkingLotController;
+
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,11 +17,11 @@ public class CommandRegistry {
         commands.remove(command);
     }
 
-    public void execute(String incomingCommand) {
+    public Command execute(String incomingCommand) {
         for (Command command: commands) {
             if (command.matches(incomingCommand)) {
                 command.execute(incomingCommand);
-                return;
+                return command;
             }
         }
         throw new RuntimeException("No command found for: " + incomingCommand);

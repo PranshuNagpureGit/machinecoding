@@ -12,6 +12,10 @@ public class GenerateTicket implements Command{
 
     TicketController ticketController;
 
+    public GenerateTicket(TicketController ticketController) {
+        this.ticketController = ticketController;
+    }
+
     @Override
     public void execute(String command) {
         List<String> tokens = Arrays.asList(command.split(" "));
@@ -30,6 +34,11 @@ public class GenerateTicket implements Command{
         if(tokens.get(0).equals(COMMAND_NAME)) {
             return true;
         }
+        return false;
+    }
+
+    @Override
+    public boolean isExitCommand() {
         return false;
     }
 }

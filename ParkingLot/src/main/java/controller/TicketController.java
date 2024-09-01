@@ -21,7 +21,7 @@ public class TicketController {
         Ticket ticket = null;
         TicketResponseDTO responseDTO = null;
         try {
-            ticket = ticketService.generateTicket(vehicleNumber, vehicleType, gateID);
+            ticket = ticketService.processTicketRequest(vehicleNumber, vehicleType, gateID);
         } catch (Exception e) {
             responseDTO = new TicketResponseDTO();
             responseDTO.setStatus("Failure");
